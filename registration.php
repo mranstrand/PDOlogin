@@ -18,7 +18,7 @@ $DBH = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
 $DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
 
 // Förbered databasfråga med placeholders (markerade med : i början)
-$STH = $DBH->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
+$STH = $DBH->prepare("INSERT INTO users (username, password) value (:username, :password)");
 
 // Ersätt placeholders med värden från variabler
 $STH->bindParam(':username', $username);
@@ -27,8 +27,4 @@ $STH->bindParam(':password', $password);
 // Utför databasfrågan.
 $STH->execute();
 
-// Undersök om någon användare matchar frågan
-if($row = $STH->fetch()){
-            echo "Inloggad som ". $row["username"];
-        }
 ?>

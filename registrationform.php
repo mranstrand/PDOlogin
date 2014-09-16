@@ -3,7 +3,7 @@
 		<meta charset="UTF-8" />
 	</head>
 	<body>
-		<form action="login.php" method="post">
+		<form action="registration.php" method="post">
 			Användarnamn: <input type="text" name="username" /><br />
 			Lösenord: <input type="password" name="password" /><br />
 			<input type="submit" />
