@@ -29,6 +29,9 @@ $STH->execute();
 
 // Undersök om någon användare matchar frågan
 if($row = $STH->fetch()){
-            echo "Inloggad som ". $row["username"];
+	
+            $_SESSION["username"] = $row["username"];
+            header("Location: index.php");
+			
         }
 ?>
